@@ -1,0 +1,46 @@
+{
+  "name": "game-server",
+  "version": "0.1.0",
+  "description": "Server for game-",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "./node_modules/.bin/nodemon index.js",
+    "test": "jest --verbose",
+    "db:create": "./node_modules/.bin/sequelize db:create",
+    "db:create-migration": "./node_modules/.bin/sequelize migration:create",
+    "db:migrate": "./node_modules/.bin/sequelize db:migrate",
+    "db:seed": "./node_modules/.bin/sequelize db:seed:all",
+    "db:seed-undo": "./node_modules/.bin/sequelize db:seed:undo:all",
+    "db:init": "npm run dev:createDB && npm run dev:migrateDB && npm run dev:seed-undo && npm run dev:seed",
+    "lint": "eslint ./"
+  },
+  "author": "Maksym Herasymenko",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cookie-session": "^2.0.0-beta.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.10",
+    "md5": "^2.2.1",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "jest": "^24.1.0",
+    "nodemon": "^1.18.10",
+    "sequelize-cli": "^5.4.0"
+  },
+  "nodemonConfig": {
+    "env": {
+      "NODE_ENV": "development"
+    }
+  }
+}
